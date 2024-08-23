@@ -1,0 +1,17 @@
+---
+import { cn } from "@/lib/utils";
+
+const { className } = Astro.props;
+---
+
+<main
+  class={cn(
+    "flex justify-center min-h-screen px-4 mt-[105px] mb-6 items-start w-full",
+    className
+  )}
+  {...Astro.props}
+>
+  <section class="flex w-full max-w-xl flex-col items-start justify-center">
+    <slot />
+  </section>
+</main>
