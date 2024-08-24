@@ -1,17 +1,30 @@
 ---
 import { cn } from "@/lib/utils";
+import "../index.css";
+import Header from "@/components/Header";
+import "@fontsource/ibm-plex-sans";
 
-const { className } = Astro.props;
+const { title, className } = Astro.props;
 ---
 
-<main
-  class={cn(
-    "flex justify-center min-h-screen px-4 mt-[105px] mb-6 items-start w-full",
-    className
-  )}
-  {...Astro.props}
->
-  <section class="flex w-full max-w-xl flex-col items-start justify-center">
-    <slot />
-  </section>
-</main>
+<html lang="en">
+  <head>
+    <title>
+      {title}
+    </title>
+  </head>
+  <body>
+    <Header client:load />
+    <main
+      class={cn(
+        "flex justify-center min-h-screen px-4 mt-[105px] mb-6 items-start w-full",
+        className
+      )}
+      {...Astro.props}
+    >
+      <section class="flex w-full max-w-xl flex-col items-start justify-center">
+        <slot />
+      </section>
+    </main>
+  </body>
+</html>

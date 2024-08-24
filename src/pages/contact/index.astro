@@ -1,61 +1,10 @@
 ---
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Heading, Paragraph } from "@/components/ui/typography";
+import ContactForm from "@/components/ContactForm";
+import { Heading } from "@/components/ui/typography";
 import Layout from "@/layouts/Layout.astro";
 ---
 
-<html>
-  <head>
-    <title>Contact - Haikel</title>
-  </head>
-  <body>
-    <Layout>
-      <Heading as="h1">Contact</Heading>
-      <form ref={formRef} onSubmit={handleSubmit} class="w-full space-y-6 mt-6">
-        <div class="flex w-full justify-center flex-col items-start">
-          <label htmlFor="guest-email">
-            <Paragraph className="text-sm font-semibold">Email</Paragraph>
-          </label>
-          <Input
-            name="guest-email"
-            placeholder="Your Email...."
-            className="mt-1 w-full"
-            type="email"
-            required
-          />
-        </div>
-        <div class="flex w-full justify-center flex-col items-start">
-          <label htmlFor="message">
-            <Paragraph className="text-sm font-semibold">Message</Paragraph>
-          </label>
-          <Textarea
-            name="message"
-            placeholder="Your Message...."
-            className="mt-1 w-full h-44"
-            required
-          />
-        </div>
-        <Button type="submit" className="font-bold"> Submit! </Button>
-      </form>
-    </Layout>
-    {
-      isSuccessSendmessage ? (
-        <div class="flex justify-center items-center w-full fixed top-0 backdrop-blur-md min-h-screen z-50">
-          <div class="rounded-lg px-6 py-4 dark:bg-neutral-900 flex justify-center items-center flex-col text-center">
-            <Heading as="h3" className="font-bold">
-              Success send message!
-            </Heading>
-            <Button
-              onClick={() => setIsSuccessSendmessage(false)}
-              className="font-bold mt-3 w-24"
-            >
-              Close
-            </Button>
-          </div>
-        </div>
-      ) : null
-    }
-  </body>
-</html>
+<Layout title="Contact - Haikel">
+  <Heading as="h1">Contact</Heading>
+  <ContactForm client:load />
+</Layout>
