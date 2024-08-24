@@ -1,0 +1,35 @@
+---
+import {
+  FacebookIcon,
+  GithubIcon,
+  InstagramIcon,
+  LinkedinIcon,
+} from "lucide-react";
+import { Paragraph } from "./ui/typography";
+
+const date = new Date();
+---
+
+<footer class="w-full flex justify-center items-center p-4">
+  <div
+    class="w-full max-w-xl flex justify-center sm:justify-between flex-col sm:flex-row items-center"
+  >
+    <Paragraph className="font-bold text-sm">
+      ©{date.getFullYear()} Haikel Ilham Hakim
+    </Paragraph>
+    <div class="space-x-4 mt-4 sm:mt-0 flex justify-center items-center">
+      <a href="https://github.com/haikelz" target="_blank">
+        <GithubIcon size={20} />
+      </a>
+      <a href="https://www.linkedin.com/in/haikel" target="_blank">
+        <LinkedinIcon size={20} />
+      </a>
+      <a href="https://www.facebook.com/kelgfx" target="_blank">
+        <FacebookIcon size={20} />
+      </a>
+      <a href="https://www.instagram.com/ekel.ps/" target="_blank">
+        <InstagramIcon size={20} />
+      </a>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,40 @@
+---
+import { Heading, Paragraph } from "@/components/ui/typography";
+import Layout from "@/layouts/Layout.astro";
+import { data } from "@/lib/utils";
+---
+
+<html>
+  <head>
+    <title>Works - Haikel</title>
+  </head>
+  <body>
+    <Layout>
+      <Heading as="h1">Works</Heading>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 grid-rows-1 sm:grid-rows-2 mt-6 gap-4"
+      >
+        {
+          data.worksList.map((item) => (
+            <div class="drop-shadow-md bg-white dark:bg-neutral-900">
+              <img
+                src={item.thumbnail}
+                alt={item.name}
+                loading="lazy"
+                class="h-[170px] w-full"
+              />
+              <a href={item.github} rel="noopener noreferrer" target="_blank">
+                <div class="px-4 pt-2 pb-4">
+                  <Heading as="h3">{item.name}</Heading>
+                  <Paragraph className="mt-2 text-sm">
+                    {item.description}
+                  </Paragraph>
+                </div>
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </Layout>
+  </body>
+</html>
